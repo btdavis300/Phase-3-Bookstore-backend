@@ -26,10 +26,12 @@ class Book < ActiveRecord::Base
         order(:price).reverse
     end
 
+
     def self.sort_by_newest_book
-        current_year = Time.now.year
-        filtered_year = current_year - 5
-        where("published_date > filtered_year")
+        filtered_year = Time.now.year - 5
+        selected_books= self.select {|i| i.published_date >= filtered_year}
+        selected_books.order(:published_date)
+        
     end
 
 end
