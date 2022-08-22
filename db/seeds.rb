@@ -25,7 +25,7 @@ puts "🌱 Seeding books"
         cart: false,
         favorite: false,
         ebook: Faker::Boolean.boolean,
-        published_date: Faker::Date.between(from: '1800-01-01', to: Date.today),
+        published_date: rand(1800..Time.now.year),
         price: Faker::Number.between(from: 10, to: 50)
     )
 end
