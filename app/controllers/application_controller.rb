@@ -3,7 +3,8 @@ class ApplicationController < Sinatra::Base
   
   # Add your routes here
   get "/" do
-    { message: "Good luck with your project!" }.to_json
+    books = Book.all.first(5)
+    books.to_json
   end
 
   get "/books/author" do
