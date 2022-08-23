@@ -30,8 +30,9 @@ class Book < ActiveRecord::Base
     def self.sort_by_newest_book
         filtered_year = Time.now.year - 5
         selected_books= self.select {|i| i.published_date >= filtered_year}
-        selected_books.order(:published_date)
-        
     end
 
+    def self.highest_rating
+      self.length
+    end
 end

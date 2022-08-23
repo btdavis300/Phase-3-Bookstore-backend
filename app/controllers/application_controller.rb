@@ -2,8 +2,8 @@ class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
   # Add your routes here
-  get "/" do
-    books = Book.all.first(5)
+  get "/all" do
+    books = Book.all
     books.to_json
   end
 
@@ -11,5 +11,11 @@ class ApplicationController < Sinatra::Base
     books = Book.sort_by_author
     books.to_json
   end
+
+  get "/books/popular_books" do
+    books = Review.highest_rating
+    books.to_json
+  end
+
 
 end
