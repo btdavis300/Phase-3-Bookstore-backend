@@ -27,7 +27,7 @@ puts "🌱 Seeding books"
         ebook: Faker::Boolean.boolean,
         published_date: rand(1800..Time.now.year),
         price: Faker::Number.between(from: 10, to: 50),
-        image: Faker::LoremFlickr.image(size: "400x600", search_terms: ['books', 'reading'], match_all: true)
+        image: "https://loremflickr.com/400/600/books,reading/all?random=#{rand(1..300)}"
     )
 end
 
