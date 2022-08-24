@@ -30,5 +30,10 @@ class ApplicationController < Sinatra::Base
     users.to_json
     end
 
+    get "/admins" do
+      admins = Admin.all
+      admins.to_json
+      end
+
 
 end
