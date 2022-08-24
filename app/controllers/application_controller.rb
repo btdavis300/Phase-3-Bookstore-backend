@@ -17,6 +17,26 @@ class ApplicationController < Sinatra::Base
     books.to_json
   end
 
+  get "/books/newest_books" do
+    books = Book.sort_by_newest_book
+    books.to_json
+  end
+
+  get "/books/genre/:genre" do
+    if params[:genre].include?("_")
+      genre = params[:genre].tr('_', ' ').split.map(&:capitalize).join("/")
+    else
+      genre = params[:genre].tr('-', ' ').capitalize
+    end
+    books = Book.where(genre: genre)
+    books.to_json
+  end
+
+  get "/books/ebooks" do
+    books = Book.sort_by_ebooks
+    books.to_json
+  end
+
   post "/users/new_user" do
     new_user = User.create(
       name: params[:name],
