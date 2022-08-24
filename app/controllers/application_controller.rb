@@ -55,5 +55,10 @@ class ApplicationController < Sinatra::Base
       admins.to_json
       end
 
+  get "/books/book/:id" do
+    book = Book.find(params[:id])
+    book.to_json
+  end
+
 
 end

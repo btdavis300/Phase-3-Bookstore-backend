@@ -27,7 +27,8 @@ puts "🌱 Seeding books"
         ebook: Faker::Boolean.boolean,
         published_date: rand(1800..Time.now.year),
         price: Faker::Number.between(from: 10, to: 50),
-        image: "https://loremflickr.com/400/600/books,reading/all?random=#{rand(1..300)}"
+        image: "https://loremflickr.com/400/600/books,reading/all?random=#{rand(1..300)}",
+        description: Faker::Lorem.paragraph(sentence_count: 5, supplemental: true, random_sentences_to_add: 8)
     )
 end
 
