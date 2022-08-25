@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_24_213846) do
+ActiveRecord::Schema.define(version: 2022_08_25_225228) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name"
@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 2022_08_24_213846) do
     t.boolean "cart"
     t.boolean "favorite"
     t.boolean "ebook"
-    t.date "published_date"
-    t.integer "price"
+    t.string "published_date"
+    t.string "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image"
