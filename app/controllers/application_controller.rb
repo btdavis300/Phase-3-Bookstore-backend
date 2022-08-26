@@ -61,20 +61,19 @@ class ApplicationController < Sinatra::Base
   end
 
   # Post Methods
-  post "/all" do
+  post "/books/new_books" do
     book = Book.create(
       name: params[:name],
       author: params[:author],
       genre: params[:genre],
-      cart: nil,
-      favorite: nil,
+      cart: params[:cart],
+      favorite: params[:favorite],
       ebook: params[:ebook],
       published_date: params[:published_date],
       price: params[:price],
       image: params[:image],
       description: params[:description]
     )
-    book.to_json
   end
 
   # Delete Methods
@@ -95,6 +94,6 @@ class ApplicationController < Sinatra::Base
   get "/all/:id" do
     book = Book.find(params[:id])
     book.to_json
-  end  
+  end
 
 end
