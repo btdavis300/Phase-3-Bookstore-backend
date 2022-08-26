@@ -32,4 +32,5 @@ class Book < ActiveRecord::Base
         selected_books= self.select {|i| i.published_date >= filtered_year}
     end
 
+
 end

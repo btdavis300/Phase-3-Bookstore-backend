@@ -60,6 +60,16 @@ class ApplicationController < Sinatra::Base
     book.to_json
   end
 
+  get "/books/book/:id/reviews" do
+    book = Book.find(params[:id])
+    book.to_json(include: { reviews: { include: :user } })
+  end
+
+  get "/books/limit" do
+    book = Book.all.limit(16)
+    book.to_json
+  end
+
   # Post Methods
   post "/all" do
     book = Book.create(
